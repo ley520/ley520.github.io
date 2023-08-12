@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ley Z">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文章基于阮一峰老师C语言教程，感谢老师无私奉献 1、历史C 语言最初是作为 Unix 系统的开发工具而发明的。 1969年，美国贝尔实验室的肯·汤普森（Ken Thompson）与丹尼斯·里奇（Dennis Ritchie）一起开发了 Unix 操作系统。Unix 是用汇编语言写的，无法移植到其他计算机，他们决定使用高级语言重写。但是，当时的高级语言无法满足他们的要求，汤普森就在 BCPL 语言">
+<meta property="og:type" content="website">
+<meta property="og:title" content="C语言第一课-基本介绍">
+<meta property="og:url" content="http://example.com/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B8%80%E8%AF%BE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文章基于阮一峰老师C语言教程，感谢老师无私奉献 1、历史C 语言最初是作为 Unix 系统的开发工具而发明的。 1969年，美国贝尔实验室的肯·汤普森（Ken Thompson）与丹尼斯·里奇（Dennis Ritchie）一起开发了 Unix 操作系统。Unix 是用汇编语言写的，无法移植到其他计算机，他们决定使用高级语言重写。但是，当时的高级语言无法满足他们的要求，汤普森就在 BCPL 语言">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-11T13:15:23.000Z">
+<meta property="article:modified_time" content="2023-08-12T03:41:53.892Z">
+<meta property="article:author" content="Ley Z">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>C语言第一课-基本介绍 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"fpWXq1gwK3vsubNx2flUrscl-gzGzoHsz","app_key":"VLiYo6eMXH6Z0FKdnAN8PI6F","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Ley的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C语言第一课-基本介绍">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <p><strong>本文章基于<a target="_blank" rel="noopener" href="https://wangdoc.com/clang">阮一峰老师C语言教程</a>，感谢老师无私奉献</strong></p>
+<h2 id="1、历史"><a href="#1、历史" class="headerlink" title="1、历史"></a>1、历史</h2><p>C 语言最初是作为 Unix 系统的开发工具而发明的。</p>
+<p>1969年，美国贝尔实验室的肯·汤普森（Ken Thompson）与丹尼斯·里奇（Dennis Ritchie）一起开发了 Unix 操作系统。Unix 是用汇编语言写的，无法移植到其他计算机，他们决定使用高级语言重写。但是，当时的高级语言无法满足他们的要求，汤普森就在 BCPL 语言的基础上发明了 B 语言。</p>
+<p>1972年，丹尼斯·里奇和布莱恩·柯林汉（Brian Kernighan）又在 B 语言的基础上重新设计了一种新语言，这种新语言取代了 B 语言，所以称为 C 语言。</p>
+<p>1973年，整个 Unix 系统都使用 C 语言重写。此后，这种语言开始快速流传，广泛用于各种操作系统和系统软件的开发。</p>
+<p>1988年，美国国家标准协会（ANSI）正式将 C 语言标准化，标志着 C 语言开始稳定和规范化。</p>
+<p>几十年后的今天，C 语言依然是最广泛使用、最流行的系统编程语言之一，Unix 和 Linux 系统现在还是使用 C 语言开发。</p>
+<h1 id="2、C语言版本"><a href="#2、C语言版本" class="headerlink" title="2、C语言版本"></a>2、C语言版本</h1><p>目前C语言从初版到现在经历了多个版本，目前最新的版本是2018年发布的C17</p>
+<h1 id="3、Hello-Word"><a href="#3、Hello-Word" class="headerlink" title="3、Hello Word"></a>3、Hello Word</h1><p><strong>下面代码在Mac系统编写，所以没有环境配置的说明，环境问题请参考开头表名的引用链接</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><br><span class="hljs-number">1</span>、创建HelloWord.C文件，并写入下面代码<br>  <br><span class="hljs-meta"># incloud <span class="hljs-string">&lt;stdio.h&gt;</span>  <span class="hljs-comment">//C语言导入包是这么导入的，这是导入C语言的标准库</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello word!\n&quot;</span>); <span class="hljs-comment">// 打印到控制台</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <span class="hljs-comment">//目前还不知道为啥必须有return</span><br>&#125;<br><span class="hljs-number">2</span>、使用GCC编译文件为可执行文件,<br>  gcc HelloWord.c  <span class="hljs-comment">// 执行以后此时会在当前目录出现一个a.out的文件，是编译后的可执行文件</span><br>	./a.out      <span class="hljs-comment">// 执行后在命令行会打印 hello word!</span><br><span class="hljs-number">3</span>、gcc还有其他参数，可以使用 -o outFileName改变输出文件名称，也可以使用-<span class="hljs-built_in">std</span>=C99指定使用哪个标准版的C语言进行编译<br></code></pre></td></tr></table></figure>
+
+<h1 id="4、基本语法"><a href="#4、基本语法" class="headerlink" title="4、基本语法"></a>4、基本语法</h1><p><strong>C语言的风格要求：下一级代码比上一级代码缩进4个空格</strong></p>
+<h2 id="1、代码注释"><a href="#1、代码注释" class="headerlink" title="1、代码注释"></a>1、代码注释</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#incloud <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-comment">/* 第一种注释方法*/</span><br><span class="hljs-comment">// 第二种注释方法</span><br><br><span class="hljs-comment">// 第一种注释方法可以注释在行内</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello word! %s\n&quot;</span>,<span class="hljs-comment">/*输入Hello Word！hi！*/</span> <span class="hljs-string">&quot;hi&quot;</span>);<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2、语句和语句块"><a href="#2、语句和语句块" class="headerlink" title="2、语句和语句块"></a>2、语句和语句块</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#incloud <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello word!\n&quot;</span>); <span class="hljs-comment">// 这一行叫做语句 statement，必须使用分号结尾，除非明确规定不用分号结尾</span><br>  <span class="hljs-type">int</span> x;<br>  x<br>  =<br>  <span class="hljs-number">1</span><br>  ;<br>  <span class="hljs-comment">// 上面x = 1；写成了多行，但是编译时会自动忽略换行。上面等同于 int x =1 ;</span><br>  <br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>；<br>&#125;<br><span class="hljs-comment">//大括号中的所有内容组成一个块，也可以叫做复合语句 compounded statement，大括号的结尾不需要添加分号</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="3、输出printf-的基本用法"><a href="#3、输出printf-的基本用法" class="headerlink" title="3、输出printf()的基本用法"></a>3、输出printf()的基本用法</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">test</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    f：是format格式化的缩写，所以我们可以使用一些自带语法定制输出内容</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello test&quot;</span>); <span class="hljs-comment">// 基本输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello test\n&quot;</span>); <span class="hljs-comment">// \n 代表换行</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello %s&quot;</span>,<span class="hljs-string">&quot;test&quot;</span>); <span class="hljs-comment">// %s 代表占位符，在该位置会有后面的值代替</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p><strong>占位符都有哪些</strong></p>
+<ul>
+<li><code>%a</code>：十六进制浮点数，字母输出为小写。</li>
+<li><code>%A</code>：十六进制浮点数，字母输出为大写。</li>
+<li><code>%c</code>：字符。</li>
+<li><code>%d</code>：十进制整数。</li>
+<li><code>%e</code>：使用科学计数法的浮点数，指数部分的<code>e</code>为小写。</li>
+<li><code>%E</code>：使用科学计数法的浮点数，指数部分的<code>E</code>为大写。</li>
+<li><code>%i</code>：整数，基本等同于<code>%d</code>。</li>
+<li><code>%f</code>：小数（包含<code>float</code>类型和<code>double</code>类型）。</li>
+<li><code>%g</code>：6个有效数字的浮点数。整数部分一旦超过6位，就会自动转为科学计数法，指数部分的<code>e</code>为小写。</li>
+<li><code>%G</code>：等同于<code>%g</code>，唯一的区别是指数部分的<code>E</code>为大写。</li>
+<li><code>%hd</code>：十进制 short int 类型。</li>
+<li><code>%ho</code>：八进制 short int 类型。</li>
+<li><code>%hx</code>：十六进制 short int 类型。</li>
+<li><code>%hu</code>：unsigned short int 类型。</li>
+<li><code>%ld</code>：十进制 long int 类型。</li>
+<li><code>%lo</code>：八进制 long int 类型。</li>
+<li><code>%lx</code>：十六进制 long int 类型。</li>
+<li><code>%lu</code>：unsigned long int 类型。</li>
+<li><code>%lld</code>：十进制 long long int 类型。</li>
+<li><code>%llo</code>：八进制 long long int 类型。</li>
+<li><code>%llx</code>：十六进制 long long int 类型。</li>
+<li><code>%llu</code>：unsigned long long int 类型。</li>
+<li><code>%Le</code>：科学计数法表示的 long double 类型浮点数。</li>
+<li><code>%Lf</code>：long double 类型浮点数。</li>
+<li><code>%n</code>：已输出的字符串数量。该占位符本身不输出，只将值存储在指定变量之中。</li>
+<li><code>%o</code>：八进制整数。</li>
+<li><code>%p</code>：指针。</li>
+<li><code>%s</code>：字符串。</li>
+<li><code>%u</code>：无符号整数（unsigned int）。</li>
+<li><code>%x</code>：十六进制整数。</li>
+<li><code>%zd</code>：<code>size_t</code>类型。</li>
+<li><code>%%</code>：输出一个百分号。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">test</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    f：是format格式化的缩写，所以我们可以使用一些自带语法定制输出内容</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello test&quot;</span>); <span class="hljs-comment">// 基本输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello test\n&quot;</span>); <span class="hljs-comment">// \n 代表换行</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello %s&quot;</span>,<span class="hljs-string">&quot;test&quot;</span>); <span class="hljs-comment">// %s 代表占位符，在该位置会有后面的值代替</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%5d\n&quot;</span>,<span class="hljs-number">123</span>); <span class="hljs-comment">// 输出：&quot;  123&quot;</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%-5d\n&quot;</span>,<span class="hljs-number">123</span>); <span class="hljs-comment">// 输出：&quot;123  &quot;</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%12f\n&quot;</span>,<span class="hljs-number">123.45</span>); <span class="hljs-comment">// 输出 &quot;  123.450000&quot; %12f表示输出的浮点数最少要占据12位。由于小数的默认显示精度是小数点后6位，所以123.45输出结果的头部会添加2个空格</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%+d\n&quot;</span>, <span class="hljs-number">12</span>); <span class="hljs-comment">// 输出 +12  正数也展示符号</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%+d\n&quot;</span>, <span class="hljs-number">-12</span>); <span class="hljs-comment">// 输出 -12</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Number is %.2f\n&quot;</span>, <span class="hljs-number">0.5</span>); <span class="hljs-comment">//数点后面只保留两位 0.50</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%6.2f\n&quot;</span>, <span class="hljs-number">0.5</span>); <span class="hljs-comment">//%6.2f表示输出字符串最小宽度为6，小数位数为2。 输出为 &quot;  0.50&quot;</span><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    %s占位符用来输出字符串，默认是全部输出。</span><br><span class="hljs-comment">    如果只想输出开头的部分，可以用%.[m]s指定输出的长度，其中[m]代表一个数字，表示所要输出的长度</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.5s\n&quot;</span>, <span class="hljs-string">&quot;hello world&quot;</span>);<span class="hljs-comment">// 输出 hello</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello wrod ! %s \n&quot;</span>,<span class="hljs-string">&quot;Test&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello word! %s\n&quot;</span>,<span class="hljs-comment">/*输入Hello Word！hi！*/</span> <span class="hljs-string">&quot;hi&quot;</span>);<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">1</span>+<span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,x);<br>    test();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>程序需要用到的功能，不一定需要自己编写，C 语言可能已经自带了。程序员只要去调用这些自带的功能，就省得自己编写代码了。举例来说，<code>printf()</code>这个函数就是 C 语言自带的，只要去调用它，就能实现在屏幕上输出内容。</p>
+<p>C 语言自带的所有这些功能，统称为“标准库”（standard library），因为它们是写入标准的，到底包括哪些功能，应该怎么使用的，都是规定好的，这样才能保证代码的规范和可移植。</p>
+<p>不同的功能定义在不同的文件里面，这些文件统称为“头文件”（header file）。如果系统自带某一个功能，就一定还会自带描述这个功能的头文件，比如<code>printf()</code>的头文件就是系统自带的<code>stdio.h</code>。头文件的后缀通常是<code>.h</code>。</p>
+<p>如果要使用某个功能，就必须先加载对应的头文件，加载使用的是<code>#include</code>命令。这就是为什么使用<code>printf()</code>之前，必须先加载<code>stdio.h</code>的原因</p>
+
+
+  
+</article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
