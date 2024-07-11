@@ -3,7 +3,8 @@
 **字母或下划线开头，可以是任意数量的字母、数字、下划线**
 **大小写字母敏感**
 命名不能使用关键字
-'''shell
+```
+
 break      default       func     interface   select
 case       defer         go       map         struct
 chan       else          goto     package     switch
@@ -20,7 +21,7 @@ continue   for           import   return      var
 内建函数: make len cap new append copy close delete
           complex real imag
           panic recover
-'''
+```
 
 
 
