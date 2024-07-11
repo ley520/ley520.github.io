@@ -1,0 +1,29 @@
+# 命名规则
+建议是**驼峰命名**
+**字母或下划线开头，可以是任意数量的字母、数字、下划线**
+**大小写字母敏感**
+命名不能使用关键字
+'''shell
+break      default       func     interface   select
+case       defer         go       map         struct
+chan       else          goto     package     switch
+const      fallthrough   if       range       type
+continue   for           import   return      var
+
+内建常量: true false iota nil
+
+内建类型: int int8 int16 int32 int64
+          uint uint8 uint16 uint32 uint64 uintptr
+          float32 float64 complex128 complex64
+          bool byte rune string error
+
+内建函数: make len cap new append copy close delete
+          complex real imag
+          panic recover
+'''
+
+
+
+
+
+学习文档[Go语言圣经](https://gopl-zh.github.io/ch2/ch2.html)
