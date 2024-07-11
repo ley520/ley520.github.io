@@ -4,7 +4,6 @@
 **大小写字母敏感**
 命名不能使用关键字
 ```
-
 break      default       func     interface   select
 case       defer         go       map         struct
 chan       else          goto     package     switch
@@ -23,8 +22,16 @@ continue   for           import   return      var
           panic recover
 ```
 
+局部变量建议使用短小的名字。
+如果变量是全局变量或者生命周期很长，建议用含义准确的单词命名
 
-
+# 生命变量
+``` Go
+// 定义变量
+var =123
+// 定义常量
+const c = 111
+```
 
 
 学习文档[Go语言圣经](https://gopl-zh.github.io/ch2/ch2.html)

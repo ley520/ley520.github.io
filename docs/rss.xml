@@ -1,11 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ley's Blog</title><link>https://ley520.github.io</link><description>个人杂记</description><copyright>Ley's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/ley520/ley520.github.io/raw/7b46429aee2b1c72b4f748242931fe779b5f9d05/avatar.png</url><title>avatar</title><link>https://ley520.github.io</link></image><lastBuildDate>Thu, 11 Jul 2024 03:29:21 +0000</lastBuildDate><managingEditor>Ley's Blog</managingEditor><ttl>60</ttl><webMaster>Ley's Blog</webMaster><item><title>Go语言学习-程序结构</title><link>https://ley520.github.io/post/Go-yu-yan-xue-xi---cheng-xu-jie-gou.html</link><description># 命名规则&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ley's Blog</title><link>https://ley520.github.io</link><description>个人杂记</description><copyright>Ley's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/ley520/ley520.github.io/raw/7b46429aee2b1c72b4f748242931fe779b5f9d05/avatar.png</url><title>avatar</title><link>https://ley520.github.io</link></image><lastBuildDate>Thu, 11 Jul 2024 03:33:04 +0000</lastBuildDate><managingEditor>Ley's Blog</managingEditor><ttl>60</ttl><webMaster>Ley's Blog</webMaster><item><title>Go语言学习-程序结构</title><link>https://ley520.github.io/post/Go-yu-yan-xue-xi---cheng-xu-jie-gou.html</link><description># 命名规则&#13;
 建议是**驼峰命名**&#13;
 **字母或下划线开头，可以是任意数量的字母、数字、下划线**&#13;
 **大小写字母敏感**&#13;
 命名不能使用关键字&#13;
 ```&#13;
-&#13;
 break      default       func     interface   select&#13;
 case       defer         go       map         struct&#13;
 chan       else          goto     package     switch&#13;
@@ -24,9 +23,5 @@ continue   for           import   return      var&#13;
           panic recover&#13;
 ```&#13;
 &#13;
-&#13;
-&#13;
-&#13;
-&#13;
-学习文档[Go语言圣经](https://gopl-zh.github.io/ch2/ch2.html)。</description><guid isPermaLink="true">https://ley520.github.io/post/Go-yu-yan-xue-xi---cheng-xu-jie-gou.html</guid><pubDate>Thu, 11 Jul 2024 03:28:06 +0000</pubDate></item><item><title>Hello Ley520</title><link>https://ley520.github.io/post/Hello%20Ley520.html</link><description># Hello My Blog&#13;
+局部变量建议使用短小的名字。</description><guid isPermaLink="true">https://ley520.github.io/post/Go-yu-yan-xue-xi---cheng-xu-jie-gou.html</guid><pubDate>Thu, 11 Jul 2024 03:28:06 +0000</pubDate></item><item><title>Hello Ley520</title><link>https://ley520.github.io/post/Hello%20Ley520.html</link><description># Hello My Blog&#13;
 This is my first blog~。</description><guid isPermaLink="true">https://ley520.github.io/post/Hello%20Ley520.html</guid><pubDate>Fri, 21 Jun 2024 15:57:10 +0000</pubDate></item></channel></rss>
