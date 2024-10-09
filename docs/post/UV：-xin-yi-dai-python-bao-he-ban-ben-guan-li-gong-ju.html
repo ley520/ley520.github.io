@@ -90,7 +90,15 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p><a href="https://github.com/astral-sh/uv">GitHub Pages</a></p>
 <h1>基本使用</h1>
 <h2>1、安装</h2>
-<p>略</p>
+<pre class="notranslate"><code class="notranslate"># On macOS and Linux.
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows.
+$ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# With pip.
+$ pip install uv
+</code></pre>
 <h2>2、基本命令</h2>
 <h3>python版本管理</h3>
 <pre class="notranslate"><code class="notranslate">uv python install：安装 Python 版本。

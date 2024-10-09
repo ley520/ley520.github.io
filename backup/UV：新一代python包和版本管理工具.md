@@ -5,7 +5,17 @@ An extremely fast Python package and project manager, written in Rust.
 
 # 基本使用
 ## 1、安装 
-略
+```
+# On macOS and Linux.
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows.
+$ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# With pip.
+$ pip install uv
+```
+
 ## 2、基本命令
 ### python版本管理
 ```
